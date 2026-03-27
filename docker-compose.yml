@@ -1,5 +1,6 @@
 services:
   mediadedupe:
+    container_name: mediadedupe
     image: ghcr.io/parcival42/mediadedupe:latest
     ports:
       - "8080:8080"
