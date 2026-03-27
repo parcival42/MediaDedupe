@@ -12,7 +12,7 @@ Detects:
 Output: HTML report with preview thumbnails (via cli.py)
 Database: SQLite cache so repeated scans are fast
 
-Work directory: /dpool/tmp/findDuplicates/
+Work directory: /tmp/mediadedupe/ (override with DUPFINDER_DATA env var)
 
 Dependencies: pip install Pillow imagehash pillow-heif
 """
@@ -64,7 +64,7 @@ IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp',
 PHASH_THRESHOLD = 8
 
 THUMBNAIL_MAX = 300
-WORK_DIR = Path(os.environ.get('DUPFINDER_DATA', '/dpool/tmp/findDuplicates'))
+WORK_DIR = Path(os.environ.get('DUPFINDER_DATA', '/tmp/mediadedupe'))
 DB_PATH = WORK_DIR / 'findDuplicates.db'
 HTML_OUTPUT = WORK_DIR / 'duplicates_report.html'
 

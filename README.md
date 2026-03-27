@@ -68,14 +68,14 @@ python cli.py -d /path/to/your/media -t videos
 python cli.py -d /path/to/your/media -t both -o my_report.html --workers 8
 ```
 
-The report is written to the working directory (`$DUPFINDER_DATA`, default `/dpool/tmp/findDuplicates/`).
+The report is written to the working directory (`$DUPFINDER_DATA`, default `/tmp/mediadedupe/`).
 
 ## Configuration
 
 | Environment variable | Default | Description |
 |---|---|---|
 | `AUTH_SECRET` | *(random)* | HMAC key for session cookies. Set a fixed value so sessions survive restarts. |
-| `DUPFINDER_DATA` | `/dpool/tmp/findDuplicates` | Directory for the SQLite database and HTML reports. |
+| `DUPFINDER_DATA` | `/tmp/mediadedupe` | Directory for the SQLite database and HTML reports. Set this via the `volumes` mount in docker-compose. |
 
 ## Authentication
 

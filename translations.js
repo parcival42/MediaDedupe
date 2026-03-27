@@ -15,8 +15,8 @@ const TRANSLATIONS = {
     // Settings
     dir1_label: 'Verz 1:', dir2_label: 'Verz 2:',
     compare_toggle: 'Vergleichsmodus',
-    placeholder_path1: '/dpool/fotos/2024',
-    placeholder_path2: '/dpool/backup/2024',
+    placeholder_path1: '/path/to/your/media',
+    placeholder_path2: '/path/to/your/media2',
     media_type_label: 'Medientyp',
     opt_images: 'Bilder', opt_videos: 'Videos', opt_both: 'Bilder + Videos',
     phash_threshold_lbl: 'pHash-Schwellenwert',
@@ -271,8 +271,8 @@ const TRANSLATIONS = {
     // Settings
     dir1_label: 'Dir 1:', dir2_label: 'Dir 2:',
     compare_toggle: 'Compare mode',
-    placeholder_path1: '/dpool/photos/2024',
-    placeholder_path2: '/dpool/backup/2024',
+    placeholder_path1: '/path/to/your/media',
+    placeholder_path2: '/path/to/your/media2',
     media_type_label: 'Media type',
     opt_images: 'Images', opt_videos: 'Videos', opt_both: 'Images + Videos',
     phash_threshold_lbl: 'pHash threshold',
