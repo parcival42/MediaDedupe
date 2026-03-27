@@ -127,7 +127,7 @@ COOKIE_NAME = 'dupfinder_session'
 SESSION_DAYS = 30
 
 # Paths accessible without a cookie
-_PUBLIC_PATHS = {'/', '/api/login', '/api/auth/check', '/api/auth/initial-setup'}
+_PUBLIC_PATHS = {'/', '/api/login', '/api/auth/check', '/api/auth/initial-setup', '/translations.js'}
 
 
 def create_session(username: str) -> str:
