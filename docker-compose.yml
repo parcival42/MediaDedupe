@@ -1,0 +1,12 @@
+services:
+  mediadedupe:
+    image: ghcr.io/parcival42/mediadedupe:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - /path/to/your/media:/media
+      - /path/to/your/data:/data
+    command: ["-d", "/media"]
+    restart: unless-stopped
+    environment:
+      - AUTH_SECRET=your_long_random_secret_here

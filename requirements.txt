@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+Pillow>=9.0.0
+imagehash
+pillow-heif
