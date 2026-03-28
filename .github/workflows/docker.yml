@@ -6,6 +6,9 @@ on:
       - main
     paths-ignore:
       - 'README.md'
+      - 'docker-compose.yml'
+      - 'LICENSE'
+      - '.github/workflows/docker.yml'
   workflow_dispatch:
 
 jobs:
