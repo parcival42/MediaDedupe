@@ -127,7 +127,7 @@ COOKIE_NAME = 'dupfinder_session'
 SESSION_DAYS = 30
 
 # Paths accessible without a cookie
-_PUBLIC_PATHS = {'/', '/api/login', '/api/auth/check', '/api/auth/initial-setup', '/translations.js'}
+_PUBLIC_PATHS = {'/', '/api/login', '/api/auth/check', '/api/auth/initial-setup', '/translations.js', '/styles.css'}
 
 
 def create_session(username: str) -> str:
@@ -1072,6 +1072,12 @@ def frontend() -> str:
 def translations_js() -> Response:
     content = (_DIR / 'translations.js').read_text(encoding='utf-8')
     return Response(content=content, media_type='application/javascript; charset=utf-8')
+
+
+@app.get('/styles.css')
+def styles_css() -> Response:
+    content = (_DIR / 'styles.css').read_text(encoding='utf-8')
+    return Response(content=content, media_type='text/css; charset=utf-8')
 
 
 # ===========================================================================

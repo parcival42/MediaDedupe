@@ -12,7 +12,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # App-Dateien
-COPY app.py engine.py frontend.html report_template.py translations.js ./
+COPY app.py engine.py frontend.html report_template.py translations.js styles.css ./
 
 # Datenbank + Arbeitsverzeichnis als Volume
 ENV DUPFINDER_DATA=/data
