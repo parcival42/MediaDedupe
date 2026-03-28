@@ -99,7 +99,7 @@ The CLI report (`cli.py`) is rendered in English.
 | **Frame threshold** | Hamming distance per video frame (default 10) |
 | **Min frame matches** | How many of the 5 sampled frames must match (default 4) |
 | **Duration tolerance** | Videos whose durations differ by more than this (seconds) are never compared |
-| **Intensive mode** | Samples the first and last N seconds of each video (default: 30 s at 1 fps) and performs all-pairs frame matching on those blocks. Catches re-encoded or slightly trimmed copies that share identical intros/outros. |
+| **Intensive mode** | Samples the first and last N seconds of each video (default: 30 s at 1 fps) and performs all-pairs frame matching on those blocks. Catches re-encoded or slightly trimmed copies that share identical intros/outros. Only available in **Videos** mode. |
 | **Workers** | Parallel threads for hashing (default: up to 4, auto-detected) |
 
 **Compare mode** scans two directories independently and then finds files in directory A that are duplicates of files in directory B. Only cross-directory pairs are shown — within-directory duplicates are not reported in this mode. Useful for backup consolidation: point A at your current library and B at the backup to see which files already exist in both places.

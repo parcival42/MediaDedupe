@@ -1380,10 +1380,10 @@ window.fetch = async function(...args) {
 
 function onTypeChange() {
   const t = document.getElementById('media-type-select').value;
-  const z = t === 'videos' || t === 'beide';
-  document.getElementById('video-options').style.display = z ? '' : 'none';
-  document.getElementById('video-options2').style.display = z ? '' : 'none';
-  document.getElementById('video-intensivee-options').style.display = z ? '' : 'none';
+  const hasVideo = t === 'videos' || t === 'both';
+  document.getElementById('video-options').style.display = hasVideo ? '' : 'none';
+  document.getElementById('video-options2').style.display = hasVideo ? '' : 'none';
+  document.getElementById('video-intensivee-options').style.display = t === 'videos' ? '' : 'none';
 }
 
 // --- Last Scan ---
