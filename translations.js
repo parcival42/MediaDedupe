@@ -186,9 +186,9 @@ const TRANSLATIONS = {
     <dt>Dauer-Toleranz (Videos)</dt>
     <dd>Maximale Abweichung der Videolänge in Sekunden. Videos mit sehr unterschiedlicher Länge werden damit ausgeschlossen.</dd>
     <dt>Intensiver Abgleich</dt>
-    <dd>Vergleicht zusätzlich Start- und End-Blöcke der Videos (erste und letzte ~10 %). Findet auch Kopien mit abweichenden Mittelbereichen (z.B. re-encodiert mit anderen Credits). Erhöht die Scanzeit.</dd>
+    <dd>Vergleicht zusätzlich die ersten und letzten X Sekunden jedes Videos (Standard: 30 s, einstellbar von 5–120 s). Findet auch Kopien mit abweichenden Mittelbereichen (z.B. re-encodiert mit anderen Credits). Erhöht die Scanzeit spürbar bei großen Bibliotheken.</dd>
     <dt>Rand-Abschnitt</dt>
-    <dd>Größe des Start-/End-Blocks beim intensiven Abgleich als Anteil der Gesamtlänge (z.B. 0.1 = 10 %).</dd>
+    <dd>Dauer des Start-/End-Blocks in Sekunden (Standard: 30 s, Min: 5 s, Max: 120 s). Nur beim intensiven Abgleich relevant.</dd>
     <dt>Worker</dt>
     <dd>Anzahl paralleler Prozesse. Mehr Worker = schneller, aber mehr CPU- und RAM-Last.</dd>
   </dl>
@@ -242,7 +242,7 @@ const TRANSLATIONS = {
     <dt>Frame-Sampling</dt>
     <dd>Aus jedem Video werden gleichmäßig verteilte Frames extrahiert. Von jedem Frame wird ein pHash berechnet. Zwei Videos gelten als visuelles Duplikat wenn eine ausreichende Anzahl Frame-Paare unter dem Schwellenwert liegt.</dd>
     <dt>Intensiver Abgleich (Start/End-Block)</dt>
-    <dd>Zusätzlich zum Gesamtabgleich werden die Frames der ersten und letzten X Prozent separat verglichen. Damit werden auch Videos gefunden die im Mittelteil abweichen (z.B. unterschiedliche Werbeeinblendungen oder neu-enkodierte Fassungen mit geänderten Credits).</dd>
+    <dd>Die ersten und letzten X Sekunden (Standard: 30 s, 1 fps) werden separat verglichen. Damit werden auch Videos gefunden die im Mittelteil abweichen (z.B. unterschiedliche Werbeeinblendungen oder neu-enkodierte Fassungen mit geänderten Credits).</dd>
   </dl>
 </section>
 <section class="help-section">
@@ -444,9 +444,9 @@ const TRANSLATIONS = {
     <dt>Duration tolerance (videos)</dt>
     <dd>Maximum allowed difference in video length in seconds. Videos with very different lengths are excluded.</dd>
     <dt>Deep comparison</dt>
-    <dd>Additionally compares the start and end blocks of videos (first and last ~10 %). Finds copies with differing middle sections (e.g. re-encoded with different credits). Increases scan time.</dd>
+    <dd>Additionally compares the first and last X seconds of each video (default: 30 s, configurable from 5–120 s). Finds copies with differing middle sections (e.g. re-encoded with different credits). Noticeably increases scan time on large libraries.</dd>
     <dt>Edge section</dt>
-    <dd>Size of the start/end block for deep comparison as a fraction of total length (e.g. 0.1 = 10 %).</dd>
+    <dd>Duration of the start/end block in seconds (default: 30 s, min: 5 s, max: 120 s). Only relevant for deep comparison.</dd>
     <dt>Workers</dt>
     <dd>Number of parallel processes. More workers = faster, but higher CPU and RAM usage.</dd>
   </dl>
