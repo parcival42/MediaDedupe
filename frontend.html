@@ -638,6 +638,17 @@ header h1 {
   background: var(--surface-4); color: var(--text-3);
   cursor: not-allowed; box-shadow: none; transform: none;
 }
+#login-lang {
+  display: flex; justify-content: center; gap: 8px; margin-top: 16px;
+}
+#login-lang button {
+  background: none; border: 1px solid var(--border-mid);
+  border-radius: 6px; color: var(--text-3); cursor: pointer;
+  font-size: 0.75em; padding: 3px 10px; font-family: var(--font-ui);
+  transition: border-color 0.15s, color 0.15s;
+}
+#login-lang button.active { border-color: var(--accent); color: var(--accent); }
+#login-lang button:hover:not(.active) { border-color: var(--border-hi); color: var(--text-2); }
 
 /* Logout-Button */
 #btn-logout {
@@ -870,6 +881,10 @@ header h1 { font-size: 1em; }
     </div>
     <div id="login-error"></div>
     <button id="btn-login" onclick="submitLogin()">Anmelden</button>
+    <div id="login-lang">
+      <button id="ll-de" onclick="setLoginLang('de')">DE</button>
+      <button id="ll-en" onclick="setLoginLang('en')">EN</button>
+    </div>
   </div>
 </div>
 
@@ -1246,6 +1261,7 @@ function showLogin() {
   document.getElementById('login-user').value = '';
   document.getElementById('login-pass').value = '';
   document.getElementById('login-screen').classList.add('active');
+  updateLoginLangButtons();
   setTimeout(() => document.getElementById('login-user').focus(), 50);
 }
 
@@ -1258,7 +1274,21 @@ function showInitialSetup() {
   document.getElementById('login-user').value = '';
   document.getElementById('login-pass').value = '';
   document.getElementById('login-screen').classList.add('active');
+  updateLoginLangButtons();
   setTimeout(() => document.getElementById('login-user').focus(), 50);
+}
+
+function setLoginLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  applyTranslations();
+  const isSetup = document.getElementById('btn-login').onclick === submitInitialSetup;
+  isSetup ? showInitialSetup() : showLogin();
+}
+
+function updateLoginLangButtons() {
+  document.getElementById('ll-de').classList.toggle('active', currentLang === 'de');
+  document.getElementById('ll-en').classList.toggle('active', currentLang === 'en');
 }
 
 async function submitLogin() {
