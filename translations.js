@@ -15,6 +15,7 @@ const TRANSLATIONS = {
     // Settings
     dir1_label: 'Verz 1:', dir2_label: 'Verz 2:',
     compare_toggle: 'Vergleichsmodus',
+    tree_click_sets: 'Baum-Klick setzt:',
     placeholder_path1: '/path/to/your/media',
     placeholder_path2: '/path/to/your/media2',
     media_type_label: 'Medientyp',
@@ -170,7 +171,8 @@ const TRANSLATIONS = {
     help_usage_html: `
 <section class="help-section">
   <h3>1. Verzeichnis wählen</h3>
-  <p>Im Ordnerbaum links ein Verzeichnis anklicken. Der gewählte Pfad wird automatisch in das Scan-Formular übernommen. Mit <strong>Vergleichsmodus</strong> lassen sich zwei unterschiedliche Verzeichnisse gegeneinander prüfen — nützlich z.B. um ein Backup mit dem Original zu vergleichen.</p>
+  <p>Im Ordnerbaum links ein Verzeichnis anklicken. Der gewählte Pfad wird automatisch in das Scan-Formular übernommen.</p>
+  <p>Mit <strong>Vergleichsmodus</strong> lassen sich zwei Verzeichnisse gegeneinander prüfen — nützlich z.B. um ein Backup mit dem Original zu vergleichen. Ist der Vergleichsmodus aktiv, erscheint unterhalb des Baums ein kleiner Selektor <em>„Baum-Klick setzt"</em>. Damit legst du fest, welches Verzeichnis der nächste Klick im Baum befüllt — <strong style="color:#80c0ff">Verz&nbsp;1</strong> (blau) oder <strong style="color:#ff8080">Verz&nbsp;2</strong> (rot). Einfach Ziel umschalten, dann das gewünschte Verzeichnis im Baum anklicken.</p>
 </section>
 <section class="help-section">
   <h3>2. Scan konfigurieren</h3>
@@ -271,6 +273,7 @@ const TRANSLATIONS = {
     // Settings
     dir1_label: 'Dir 1:', dir2_label: 'Dir 2:',
     compare_toggle: 'Compare mode',
+    tree_click_sets: 'Tree click sets:',
     placeholder_path1: '/path/to/your/media',
     placeholder_path2: '/path/to/your/media2',
     media_type_label: 'Media type',
@@ -426,7 +429,8 @@ const TRANSLATIONS = {
     help_usage_html: `
 <section class="help-section">
   <h3>1. Select a directory</h3>
-  <p>Click a directory in the folder tree on the left. The selected path is automatically filled into the scan form. Enable <strong>Compare mode</strong> to scan two different directories against each other — useful for comparing a backup with the original.</p>
+  <p>Click a directory in the folder tree on the left. The selected path is automatically filled into the scan form.</p>
+  <p>Enable <strong>Compare mode</strong> to scan two directories against each other — useful for comparing a backup with the original. Once active, a small <em>"Tree click sets"</em> selector appears below the tree. Use it to choose which directory the next tree click will fill — <strong style="color:#80c0ff">Dir&nbsp;1</strong> (blue) or <strong style="color:#ff8080">Dir&nbsp;2</strong> (red). Switch the target, then click the desired directory in the tree.</p>
 </section>
 <section class="help-section">
   <h3>2. Configure the scan</h3>

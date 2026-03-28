@@ -104,6 +104,8 @@ The CLI report (`cli.py`) is rendered in English.
 
 **Compare mode** scans two directories independently and then finds files in directory A that are duplicates of files in directory B. Only cross-directory pairs are shown — within-directory duplicates are not reported in this mode. Useful for backup consolidation: point A at your current library and B at the backup to see which files already exist in both places.
 
+To set the two paths, enable the *Compare mode* checkbox in the scan form. A small **"Tree click sets: Dir 1 / Dir 2"** selector appears at the bottom of the directory tree. Select which target should receive the next click, then navigate the tree — the chosen path is written into the corresponding input field. Dir 1 is highlighted in blue, Dir 2 in red.
+
 **Intensive mode** increases scan time noticeably for large video libraries. Enable it when a regular scan misses near-duplicate videos that differ only in encoding or slight trimming at the start or end.
 
 ## Database schema
