@@ -20,7 +20,7 @@ Web-based duplicate finder for images & videos — perceptual hashing, ffmpeg-po
 | Images | `.jpg` `.jpeg` `.png` `.gif` `.webp` `.bmp` `.tiff` `.tif` `.heic` `.heif` |
 | Videos | `.mp4` `.mkv` `.avi` `.mov` `.m4v` `.webm` `.wmv` `.flv` |
 
-HEIC/HEIF support requires the optional `pillow-heif` package. Video scanning requires `ffmpeg` and `ffprobe`.
+HEIC/HEIF is Apple's image format used by default on iPhones and iPads. Support requires the optional `pillow-heif` package, which is included in `requirements.txt`. If you don't need HEIC support you can skip it (`pip install Pillow imagehash`). Video scanning requires `ffmpeg` and `ffprobe`.
 
 ## Quick start
 
@@ -46,7 +46,7 @@ services:
 docker-compose up -d
 ```
 
-Then open `http://localhost:8080` in your browser.
+Then open `http://localhost:8080` in your browser. On first open you will be prompted to create an account — see [First-run setup](#first-run-setup).
 
 ### Python (web UI)
 
@@ -79,9 +79,9 @@ The report is written to the working directory (`$DUPFINDER_DATA`, default `/tmp
 
 ## First-run setup
 
-When you open the web UI for the first time, you will be redirected to a setup page where you create the initial **admin account** (username + password). This account is created once — the setup page is only accessible as long as no user exists in the database.
+When you open the web UI for the first time, you will be redirected to a setup page where you create the **first account** (username + password). This account is created once — the setup page is only accessible as long as no user exists in the database. All accounts have equal access.
 
-After the initial setup, log in with those credentials. Additional users can be managed from within the app. Sessions are valid for 30 days and are signed with `AUTH_SECRET` (set a fixed value via the environment variable so sessions survive restarts).
+After the initial setup, log in with those credentials. Additional accounts can be managed from within the app. Sessions are valid for 30 days and are signed with `AUTH_SECRET` (set a fixed value via the environment variable so sessions survive restarts).
 
 ## Language / Localization
 
@@ -99,8 +99,12 @@ The CLI report (`cli.py`) is rendered in English.
 | **Frame threshold** | Hamming distance per video frame (default 10) |
 | **Min frame matches** | How many of the 5 sampled frames must match (default 4) |
 | **Duration tolerance** | Videos whose durations differ by more than this (seconds) are never compared |
-| **Intensive mode** | Also samples intro and outro blocks to catch re-encoded copies |
+| **Intensive mode** | Samples the first and last N seconds of each video (default: 30 s at 1 fps) and performs all-pairs frame matching on those blocks. Catches re-encoded or slightly trimmed copies that share identical intros/outros. |
 | **Workers** | Parallel threads for hashing (default: up to 4, auto-detected) |
+
+**Compare mode** scans two directories independently and then finds files in directory A that are duplicates of files in directory B. Only cross-directory pairs are shown — within-directory duplicates are not reported in this mode. Useful for backup consolidation: point A at your current library and B at the backup to see which files already exist in both places.
+
+**Intensive mode** increases scan time noticeably for large video libraries. Enable it when a regular scan misses near-duplicate videos that differ only in encoding or slight trimming at the start or end.
 
 ## Database schema
 
