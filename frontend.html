@@ -2082,7 +2082,10 @@ function createCheckbox(path, id, isOriginal, preSelected = true) {
     setTimeout(() => cb.closest('.card')?.classList.add('deselected'), 0);
   }
   label.appendChild(cb);
-  label.appendChild(document.createTextNode(isOriginal ? _t('also_delete') : _t('mark_delete')));
+  const cbSpan = document.createElement('span');
+  cbSpan.dataset.i18n = isOriginal ? 'also_delete' : 'mark_delete';
+  cbSpan.textContent = isOriginal ? _t('also_delete') : _t('mark_delete');
+  label.appendChild(cbSpan);
   return label;
 }
 
