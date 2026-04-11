@@ -2,6 +2,9 @@
 
 Web-based duplicate finder for images & videos — perceptual hashing, ffmpeg-powered, with smart intro/outro detection and a parallel scan engine.
 
+![Exact duplicates](docs/scan_exact.png)
+![Visual duplicates](docs/scan_visual.png)
+
 ## Features
 
 - **Exact duplicates** — byte-identical files detected via MD5
@@ -78,6 +81,8 @@ The report is written to the working directory (`$DUPFINDER_DATA`, default `/tmp
 | `DUPFINDER_DATA` | `/tmp/mediadedupe` | Directory for the SQLite database and HTML reports. Set this via the `volumes` mount in docker-compose. |
 
 ## First-run setup
+
+![Initial Setup](docs/Setup_en.png)
 
 When you open the web UI for the first time, you will be redirected to a setup page where you create the **first account** (username + password). This account is created once — the setup page is only accessible as long as no user exists in the database. All accounts have equal access.
 
